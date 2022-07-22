@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
+using namespace std;
 
 typedef enum {
   PASSIVE_COOLING,
