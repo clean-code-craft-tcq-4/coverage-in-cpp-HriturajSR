@@ -5,10 +5,6 @@
 #include <sstream>
 using namespace std;
 
-#define LOW_VALUE  -5
-#define MID_VALUE  30
-#define HIGH_VALUE 50
-
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
