@@ -34,27 +34,27 @@ checkAndAlert(TO_CONTROLLER, batteryChar,TOO_HIGH);
 }
 
 TEST_CASE("Test for Email : LowValue"){
-BatteryCharacter batteryCheckForEmail = {.coolingType = PASSIVE_COOLING};
+BatteryCharacter batteryCheckForEmail_1 = {.coolingType = PASSIVE_COOLING};
 
 ostringstream sendEmail;
-streambuf* streamBuffer = cout.rdbuf();
+streambuf* streamBuffer_1 = cout.rdbuf();
 cout.rdbuf(sendEmail.rdbuf());
 
-checkAndAlert(TO_EMAIL, batteryCheckForEmail, TOO_LOW);
+checkAndAlert(TO_EMAIL, batteryCheckForEmail_1, -10);
 
-cout.rdbuf(streamBuffer);
+cout.rdbuf(streamBuffer_1);
 REQUIRE(sendEmail.str() == "To:a.b@c.com\nHi, the temperature is too low\n");	
 }
 
 TEST_CASE("Test for Email : HighValue"){
-BatteryCharacter batteryCheckForEmail = {.coolingType = HI_ACTIVE_COOLING};
+BatteryCharacter batteryCheckForEmail_2 = {.coolingType = HI_ACTIVE_COOLING};
 
 ostringstream sendEmail;
-streambuf* streamBuffer = cout.rdbuf();
+streambuf* streamBuffer_2 = cout.rdbuf();
 cout.rdbuf(sendEmail.rdbuf());
 
-checkAndAlert(TO_EMAIL, batteryCheckForEmail, TOO_HIGH);
+checkAndAlert(TO_EMAIL, batteryCheckForEmail_2, 46);
 
-cout.rdbuf(streamBuffer);
+cout.rdbuf(streamBuffer_2);
 REQUIRE(sendEmail.str() == "To:a.b@c.com\nHi, the temperature is too high\n");	
 }
