@@ -43,7 +43,7 @@ cout.rdbuf(sendEmail.rdbuf());
 checkAndAlert(TO_EMAIL, batteryCheckForEmail_1, -10);
 
 cout.rdbuf(streamBuffer_1);
-REQUIRE(sendEmail.str() == "To:a.b@c.com\nHi, the temperature is too low\n");	
+REQUIRE(sendEmail.str() == "To: a.b@c.com\nHi, the temperature is too low\n");
 }
 
 TEST_CASE("Test for Email : HighValue"){
@@ -56,5 +56,5 @@ cout.rdbuf(sendEmail.rdbuf());
 checkAndAlert(TO_EMAIL, batteryCheckForEmail_2, 46);
 
 cout.rdbuf(streamBuffer_2);
-REQUIRE(sendEmail.str() == "To:a.b@c.com\nHi, the temperature is too high\n");	
+ REQUIRE(sendEmail.str() == "To: a.b@c.com\nHi, the temperature is too high\n");
 }
