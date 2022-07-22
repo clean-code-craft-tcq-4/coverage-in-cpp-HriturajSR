@@ -40,7 +40,7 @@ ostringstream sendEmail;
 streambuf* streamBuffer_1 = cout.rdbuf();
 cout.rdbuf(sendEmail.rdbuf());
 
-checkAndAlert(TO_EMAIL, batteryCheckForEmail_1, -10);
+checkAndAlert(TO_EMAIL, batteryCheckForEmail_1, -15);
 
 cout.rdbuf(streamBuffer_1);
 REQUIRE(sendEmail.str() == "To: a.b@c.com\nHi, the temperature is too low\n");
@@ -53,7 +53,7 @@ ostringstream sendEmail;
 streambuf* streamBuffer_2 = cout.rdbuf();
 cout.rdbuf(sendEmail.rdbuf());
 
-checkAndAlert(TO_EMAIL, batteryCheckForEmail_2, 46);
+checkAndAlert(TO_EMAIL, batteryCheckForEmail_2, 50);
 
 cout.rdbuf(streamBuffer_2);
  REQUIRE(sendEmail.str() == "To: a.b@c.com\nHi, the temperature is too high\n");
