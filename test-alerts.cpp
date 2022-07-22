@@ -26,9 +26,9 @@ REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 50) == TOO_HIGH);
 
 TEST_CASE( "Check and alert status to controller") {
 
-  BatteryCharacter batteryChar {PASSIVE_COOLING,"LG_Li-po"};
-	checkAndAlert(TO_CONTROLLER, batteryChar, LOW_VALUE);
-	checkAndAlert(TO_CONTROLLER, batteryChar, MID_VALUE);
-	checkAndAlert(TO_CONTROLLER, batteryChar, HIGH_VALUE);
+BatteryCharacter batteryChar {PASSIVE_COOLING,"LG_Li-po"};
+checkAndAlert(TO_CONTROLLER, batteryChar, TOO_LOW);
+checkAndAlert(TO_CONTROLLER, batteryChar, NORMAL);
+checkAndAlert(TO_CONTROLLER, batteryChar,TOO_HIGH);
 
 }
